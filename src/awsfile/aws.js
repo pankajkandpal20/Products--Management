@@ -16,7 +16,7 @@ let uploadFile = async(file) => {
             Key: "abcd/" + file.originalname,  
             Body: file.buffer
         }
-    
+        
     
         s3.upload( uploadParams, function (err, data ){
             if(err) {

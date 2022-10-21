@@ -104,7 +104,7 @@ const createCart = async function (req, res) {
 
 
 
-      return res.status(200).send({
+      return res.status(201).send({
         status: true,
         message: "Product added to cart",
         data: newItemInCart,
@@ -134,7 +134,7 @@ const createCart = async function (req, res) {
           { $push: { items: { productId: productId, quantity: 1 } }, $inc: { totalPrice: +productById.price, totalItems: +1 }, }, { new: true }).populate('items.productId')
 
 
-        return res.status(200)
+        return res.status(201)
           .send({ status: true, message: "product updated to cart", data: updatedProductQuantity });
       }
     }
